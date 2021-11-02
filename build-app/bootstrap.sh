@@ -34,8 +34,24 @@ cd /
 cd vuego-demoapp/
 cd server
 
-#Building the project
+#Building the back-end
 sudo go build
 
 #Copying bin file to shared/
 sudo cp /home/vagrant/vuego-demoapp/server/vuego-demoapp /shared
+
+#Making environmental variables
+cd /home/vagrant
+echo "IPSTACK_API_KEY = http://api.ipstack.com/190.251.146.218?access_key=4a9355295da7ed5babd11364dbbd328e" >> .env
+echo "PORT = 4001" >> .env
+sudo cp .env /home/vagrant/vuego-demoapp/spa
+sudo cp .env /shared
+
+#Buidling frontEnd
+cd /home/vagrant/vuego-demoapp/spa
+sudo npm install 
+npm run build
+
+#Compression
+sudo tar -czvf dist.tar.gz ./dist/
+sudo cp dist.tar.gz /shared
