@@ -35,10 +35,10 @@ echo "IPSTACK_API_KEY = http://api.ipstack.com/190.251.146.218?access_key=4a9355
 echo "PORT = 4001" >> .env
 
 #Putting variables in backend
-sudo cp .env /vuego-demoapp/server
+sudo cp .env /home/vagrant/vuego-demoapp/server
 
 #Building the back-end
-cd /vuego-demoapp/server
+cd /home/vagrant/vuego-demoapp/server
 sudo go build
 
 #Copying bin file to shared/
