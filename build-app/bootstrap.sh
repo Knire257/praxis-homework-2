@@ -44,7 +44,7 @@ sudo go build
 #Copying bin file to shared/
 sudo cp /home/vagrant/vuego-demoapp/server/vuego-demoapp /shared
 
-#Putting env variables in front too
+#Putting env variables in front and in shared too
 sudo cp .env /home/vagrant/vuego-demoapp/spa
 sudo cp .env /shared
 
