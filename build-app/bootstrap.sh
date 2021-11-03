@@ -29,21 +29,22 @@ vue --version
 #Clonning app to build project afterwars
 git clone https://github.com/jdmendozaa/vuego-demoapp.git
 
-#Accesing to the local repo
-cd /
-cd vuego-demoapp/
-cd server
+#Making environmental variables
+cd /home/vagrant
+echo "IPSTACK_API_KEY = http://api.ipstack.com/190.251.146.218?access_key=4a9355295da7ed5babd11364dbbd328e" >> .env
+echo "PORT = 4001" >> .env
+
+#Putting variables in backend
+sudo cp .env /vuego-demoapp/server
 
 #Building the back-end
+cd /vuego-demoapp/server
 sudo go build
 
 #Copying bin file to shared/
 sudo cp /home/vagrant/vuego-demoapp/server/vuego-demoapp /shared
 
-#Making environmental variables
-cd /home/vagrant
-echo "IPSTACK_API_KEY = http://api.ipstack.com/190.251.146.218?access_key=4a9355295da7ed5babd11364dbbd328e" >> .env
-echo "PORT = 4001" >> .env
+#Putting env variables in front too
 sudo cp .env /home/vagrant/vuego-demoapp/spa
 sudo cp .env /shared
 
