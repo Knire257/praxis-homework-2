@@ -4,6 +4,9 @@ echo "Hello from frontend!"
 #Going to the Proyect folder
 cd /shared
 
+#Extracting file
+sudo tar -xf ./dist.tar.gz
+
 #Installing nginx
 sudo yum install nginx -y
 
@@ -46,9 +49,9 @@ http {
     listen       80;
     server_name  localhost;
     location / {
-      root   /shared/dist;
+      root   /shared/dist/;
       index  index.html;
-      try_files $uri $uri/ /index.html;
+      try_files $uri $uri/ /index.html = 404;
     }
     error_page   500 502 503 504  /50x.html;
     location = /50x.html {
@@ -65,3 +68,5 @@ sudo mv nginx.conf /etc/nginx
 
 #Reloading nginx
 sudo systemctl reload nginx
+
+echo "Todo listo"
