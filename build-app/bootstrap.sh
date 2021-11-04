@@ -7,8 +7,17 @@ sudo yum install git -y
 sudo yum install golang -y
 
 #Installing node and npm
-curl -sL https://rpm.nodesource.com/setup_14.x | sudo bash -
-sudo yum install -y nodejs
+#curl -sL https://rpm.nodesource.com/setup_14.x | sudo bash -
+#sudo yum install -y nodejs
+yum install wget
+wget http://nodejs.org/dist/v8.4.0/node-v8.4.0.tar.gz
+tar xzvf node-v* && cd node-v*
+sudo yum install gcc gcc-c++
+./configure
+make
+sudo make install
+
+
 
 #Installing vue cli
 sudo npm install -g -y @vue/cli
@@ -21,8 +30,6 @@ echo "go:"
 go version
 echo "node:"
 node --version
-echo "npm:"
-npm --version
 echo "vue cli:"
 vue --version
 
