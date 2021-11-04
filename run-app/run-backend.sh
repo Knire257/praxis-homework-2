@@ -1,2 +1,6 @@
 #!/usr/bin/env bash
-echo "Hello from backend!"
+
+#Running backend
+cd /shared/
+
+nohup ./vuego-demoapp &
